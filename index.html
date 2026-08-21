@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Install Extension</title>
+</head>
+<body>
+    <button id="installButton">Install Extension</button>
+    <script>
+        document.getElementById('installButton').addEventListener('click', function() {
+            // Download link for the .crx file
+            const downloadLink = "https://kane-five.vercel.app/download/kane.crx";
+
+            // Use chrome.webstore.install to prompt the user to install the extension
+            chrome.webstore.install(downloadLink, function() {
+                if (chrome.runtime.lastError) {
+                    console.error(chrome.runtime.lastError.message);
+                } else {
+                    console.log('Extension installed successfully');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
